@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Nossa História</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="bg-text padding-text">
+    <div [style.font-size]="app.fontSize+'px'">
+      Sabemos que tudo que é começado por Deus e dirigido pelo seu Espírito permanece e produz fruto para a glória do Senhor Jesus Cristo.<br><br>
+      Nossa história começou com a vinda do casal Harry e Helen Scates em 1963 dos Estados Unidos, com a resolução nos seus corações de gastarem suas vidas para a obra do Senhor em nossa nação.<br><br>
+      Inicialmente permaneceram por um período de um ano em Campinas-SP, local onde aprenderam a língua portuguesa. Após este período mudaram para Brasília-DF, onde permaneceram por quatro anos.<br><br>
+      Em 1969, a família Scates mudou-se para Uberlândia, local onde fundaram uma escola de inglês com o propósito de se auto-sustentarem e iniciarem uma igreja. Durante aquela fase inicial, enquanto o terreno era arado e a Palavra de Deus semeada, Deus estava tratando e moldando as vidas daqueles que estavam chegando.<br><br>
+      No período de 1972 a 1978, o evangelismo se fortaleceu por meio de filmes cristãos nas escolas, na Igreja e na televisão, trabalho de evangelismo na cadeia pública, estudos bíblicos por correspondência e programas evangélicos nas emissoras de rádio locais.<br><br>
+      O ano de 1979 foi de grande alegria com a vinda da família do Pastor Iron para Uberlândia. Inicialmente residiram no bairro Santa Mônica.<br><br>
+      A vinda do Pastor Iron trouxe um equilíbrio e abriu um novo prisma para a atuação do Senhor em nosso meio.<br><br>
+      O início de 1980 foi marcado por um novo mover de Deus em nosso meio, com vários irmãos sendo batizados no Espírito Santo, era o início de um novo tempo para a Igreja.<br><br>
+      A década de 80 foi marcada pelo início da estrutura dos grupos familiares, hoje transformados em células e pelo início da obra missionária na Igreja. A implantação dos grupos familiares trouxe um crescimento sustentável e contínuo para a Igreja e o lançamento do projeto de missões era o cumprimento de uma profecia que havíamos recebido em 1980 de que seríamos com a Igreja de Antioquia.<br><br>
+      Na década de 90 o Senhor nos fez avançar mais adiante quanto a profecia de sermos como a Igreja de Antioquia. Foi neste período que lançamos as bases da obra missionária em outras nações. Como resultado temos hoje uma igreja plantada na França e outra em Londres.<br><br>
+      No fim de 1999 início de 2000, tivemos os privilégio de conhecer uma grande visão de conquista. Esta visão veio fortalecer aquilo que já estava plantado em nossos corações, a conquista de nossa cidade, nação e o mundo para nosso Senhor Jesus Cristo. Somos hoje uma Igreja em células com a visão de discipulado, cujo tema é cuidando bem de cada um.<br><br>
+      <strong>Cremos:</strong><br>
+      <ul>
+        <li>Em Deus Pai, criador de todas as coisas;</li>
+        <li>Em Jesus Cristo, o único Senhor e Salvador, que morreu e ressuscitou para nos dar vida eterna e que voltará para julgar o mundo;</li>
+        <li>No Espírito Santo que veio habitar em nós e que nos dá o poder para fazer a vontade de Deus e vencer o mal;</li>
+        <li>Que cada pessoa é alvo do amor de Deus e que precisa arrepender-se dos seus pecados para receber perdão;</li>
+        <li>Que todo aquele que se entrega a Jesus, torna-se filho de Deus e parte da Sua família, isto é, a igreja;</li>
+        <li>Que a Bíblia é o livro de Deus e único manual seguro para nos guiar em toda verdade.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Font button -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="resize-sharp"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-item class="range">
+        <ion-range min="14" max="48" step="2" color="secondary" [(ngModel)]="app.fontSize" (ionChange)="update()">
+          <ion-row style="font-size:18px" range-left>A</ion-row>
+          <ion-row style="font-size:38px" range-right>A</ion-row>
+        </ion-range>
+      </ion-item>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

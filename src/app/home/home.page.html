@@ -1,0 +1,154 @@
+<ion-content>
+  <ion-img src="assets/img/logo.png" class="top bottom logo bounceIn"></ion-img>
+
+  <!-- Stories -->
+  <div class="stories bottom ion-text-center" *ngIf="stories && stories.length > 0 || live && isInternet">
+    <div class="scroll ion-padding-start" scrollX="true">
+      <img *ngIf="live" class="ion-padding-end" src="assets/img/live.png" (click)="goLive()">
+      <img class="ion-padding-end" *ngFor="let story of stories; let i = index" 
+      [src]="story.thumbnail" (click)="openStory(i)">
+    </div>
+  </div>
+
+  <!-- Destaque -->
+  <ion-card *ngIf="info && info.destaque_show" class="bg destaque">
+    <ion-card-header *ngIf="info?.destaque_title">
+      <ion-card-title><strong>{{info?.destaque_title}}</strong></ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <img [src]="info?.destaque_img">
+      <ion-row>
+        <ion-col *ngIf="info?.destaque_url">
+          <ion-button size="small" (click)="go(info?.destaque_url)">
+            {{info?.destaque_url_acao}}
+          </ion-button>
+        </ion-col>
+        <ion-col *ngIf="info?.destaque_post">
+          <ion-button size="small" (click)="openPost(info?.destaque_post)">
+            Saiba Mais
+          </ion-button>
+        </ion-col>
+        <ion-col *ngIf="info?.destaque_event">
+          <ion-button size="small" (click)="openEvent(info?.destaque_event)">
+            Saiba Mais
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Home icons -->
+  <ion-grid>
+    <ion-row>
+      <ion-col (click)="route('/estudos')">
+        <div class="ion-activatable ripple-parent bg padding-button">
+          <ion-img src="assets/img/estudos.png"></ion-img>
+          <p class="ion-text-center">Estudos</p>
+          <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+        </div>
+      </ion-col>
+
+      <ion-col>
+        <div class="ion-activatable ripple-parent bg padding-button" (click)="route('/videos')">
+          <ion-img src="assets/img/videos.png"></ion-img>
+          <p class="ion-text-center">Vídeos</p>
+          <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col (click)="route('/eventos')">
+        <div class="ion-activatable ripple-parent bg padding-button">
+          <ion-img src="assets/img/eventos.png"></ion-img>
+          <p class="ion-text-center">Eventos</p>
+          <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+        </div>
+      </ion-col>
+
+      <ion-col (click)="route('/midia')">
+        <div class="ion-activatable ripple-parent bg padding-button">
+          <ion-img src="assets/img/midia.png"></ion-img>
+          <p class="ion-text-center">Mídia</p>
+          <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col (click)="route('/dizimosofertas')">
+        <div class="ion-activatable ripple-parent bg padding-button">
+          <ion-img src="assets/img/dizimos.png"></ion-img>
+          <p class="ion-text-center">Dízimos e Ofertas</p>
+          <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+        </div>
+      </ion-col>
+
+      <ion-col (click)="route('/celulas')">
+        <div class="ion-activatable ripple-parent bg padding-button">
+          <ion-img src="assets/img/celulas.png"></ion-img>
+          <p class="ion-text-center">Encontrar Célula</p>
+          <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col (click)="route('/locais')">
+        <div class="ion-activatable ripple-parent bg padding-button">
+          <ion-img src="assets/img/locais.png"></ion-img>
+          <p class="ion-text-center">Locais</p>
+          <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+        </div>
+      </ion-col>
+
+      <ion-col (click)="goCatalogo()">
+        <div class="ion-activatable ripple-parent bg padding-button">
+          <ion-img src="assets/img/catalogo.png"></ion-img>
+          <p class="ion-text-center">Catálogo</p>
+          <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col (click)="route('/shalom')">
+        <div class="ion-activatable ripple-parent bg padding-button">
+          <ion-img src="assets/img/logo.png"></ion-img>
+          <p class="ion-text-center">A Shalom</p>
+          <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+        </div>
+      </ion-col>
+
+      <ion-col (click)="goShaweb()">
+        <div class="ion-activatable ripple-parent bg padding-button">
+          <ion-img src="assets/img/shaweb.png"></ion-img>
+          <p class="ion-text-center">ShaWeb</p>
+          <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+        </div>
+      </ion-col>
+    </ion-row>
+
+     <!-- nova versão disponível -->
+    <ion-row>
+      <ion-card *ngIf="newVersion" class="bg full">
+        <ion-card-header>
+          Nova Versão disponível
+        </ion-card-header>
+        <ion-card-content>
+          <ion-button size="small" color="primary" (click)="update()" slot="start">
+            Atualizar
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+  </ion-grid>
+</ion-content>

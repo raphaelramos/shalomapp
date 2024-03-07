@@ -1,0 +1,11 @@
+<ion-header>
+    <ion-toolbar class="bg-color">
+      <ion-title>{{title}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content scrollY="false">
+    <div *ngFor="let verso of versos" class="versos" [style.font-size]="font">
+      <p><span class="verse">{{ verso.v }}</span> {{ verso.texto }}</p>
+    </div>
+    <p class="ion-text-center">NVI</p>
+</ion-content>

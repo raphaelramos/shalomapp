@@ -1,0 +1,25 @@
+<ion-content fullscreen scrollY="false" #swipeBox>
+  <div class="close" (click)="close()">
+    <ion-icon name="close-outline"></ion-icon>
+  </div>
+
+  <ion-progress-bar [value]="isProgress"></ion-progress-bar>
+  <ion-slides pager [options]="slideOpts" #slides (ionSlidesDidLoad)="start(slides)" 
+  (ionSlideDidChange)="show()" (ionSlideTap)="stop(slides)" (ionSlideTouchEnd)="start(slides)">
+    <ion-slide *ngFor="let story of stories">
+      <div class="slide">
+        <div *ngIf="load && (story.acf.url_externa || story.acf.saibamais)" (click)="openInfo(story.acf.url_externa, story.acf.saibamais)" class="button">
+          <ion-icon name="chevron-up-outline" class="floating"></ion-icon>
+          <p>Saiba Mais</p>
+        </div>
+
+        <ion-img [src]="story.guid" (ionImgWillLoad)="load = false" (ionImgDidLoad)="load = true"></ion-img>
+
+        <div class="ion-padding-top" *ngIf="!load">
+          <ion-spinner name="crescent" color="light"></ion-spinner>
+        </div>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>
+

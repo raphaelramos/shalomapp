@@ -1,0 +1,9 @@
+{
+  "name": "Shalom",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "02cf6877"
+}

@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Eventos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid *ngIf="!isInternet">
+    <h4 class="ion-padding-start white" [style.font-size]="app.fontSize+'px'">
+      Você está sem internet!
+    </h4>
+    <ion-row class="ion-justify-content-center">
+      <ion-button col-4 icon-left color="primary" (click)="fetchData()">
+        <ion-icon name="refresh"></ion-icon>
+        Tentar Novamente
+      </ion-button>
+    </ion-row>
+  </ion-grid>
+
+  <div *ngIf="eventos != null; else loading">
+    <div *ngFor="let evento of eventos">
+      <ion-card (click)="eventTapped(evento.id, evento)">
+        <img *ngIf="evento.image" [src]="evento.image.sizes.medium.url" />
+        <ion-card-header [style.font-size]="app.fontSize+'px'">
+          {{evento.title}}
+        </ion-card-header>
+        <ion-card-content>
+          {{evento.utc_start_date | toDateObj | date: 'dd/MM/yyyy'}}
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <ion-card *ngIf="total == 0">
+      <ion-card-header>
+        Não há eventos próximos!
+      </ion-card-header>
+    </ion-card>
+  </div>
+
+  <!-- Skeleton screen -->
+  <ng-template #loading>
+    <ion-card *ngFor="let skeleton of skeletons">
+      <ion-card-header>
+        <ion-card-title> <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text></ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+          <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+      </ion-card-content>
+    </ion-card>
+  </ng-template>
+</ion-content>

@@ -1,0 +1,90 @@
+ion-content {
+    --background: #000 url(../../assets/img/bg_home.jpg) no-repeat center top / cover;
+}
+
+ion-grid {
+    margin: 0px 33px 0px 33px;
+    padding: 1px;
+}
+
+ion-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50px;
+    filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.3));
+}
+
+ion-card-title, ion-card-header, p {
+    color: white;
+}
+
+.stories {
+    overflow: hidden; 
+    white-space: nowrap;
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .scroll {
+      overflow: auto;
+    }
+}
+
+.scroll img {
+    width: 100px;
+    border-radius: 8px;
+}
+
+.padding-live {
+    padding: 1px 3px 1px 3px;
+}
+
+.top {
+    padding-top: 8%;
+}
+
+.bottom {
+    padding-bottom: 8%;
+}
+
+.destaque {
+    margin-top: 0px;
+}
+
+.full {
+    width: 100%;
+}
+
+.logo {
+    width: 22%;
+    animation-delay: 500ms;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s; 
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both; 
+}
+
+@keyframes bounceIn {
+    0% {
+       opacity: 50;
+       transform: scale(.9);
+    }
+    100% {
+       transform: scale(1);
+    }
+ }
+ 
+ .bounceIn {
+    -webkit-animation-name: bounceIn; 
+    animation-name: bounceIn;
+ }
+
+.padding-button {
+    padding: 20px 10px 7px 10px;
+}
+
+p {
+    font-weight: bold;
+    font-size: 15px;
+}

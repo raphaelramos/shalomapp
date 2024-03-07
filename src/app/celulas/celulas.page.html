@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Células
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding-top ion-text-center" *ngIf="!load">
+    <ion-spinner name="crescent" color="light"></ion-spinner>
+  </div>
+
+  <ion-grid *ngIf="!isInternet">
+    <h4 class="ion-padding-start white">
+      Você está sem internet!
+    </h4>
+  </ion-grid>
+
+  <!-- Lista -->
+  <div *ngIf="lista">
+    <ion-searchbar color="light" placeholder="Pesquisar" [(ngModel)]="term" animated="true"></ion-searchbar>
+    <div *ngFor="let celula of celulas | filter:term">
+      <ion-card>
+        <ion-card-header>
+          <h4>Líder: {{celula.nomeMembro}}</h4>
+        </ion-card-header>
+        <ion-card-content>
+        <p>Dia: {{diaSemana[celula.diaCelula]}} {{celula.horarioCelula}}</p>
+        <p>Endereço: {{celula.txtEndereco}}</p>
+        <p>Telefone: {{celula.telefoneCelula}}</p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+  <!-- Mapa -->
+  <div #mapElement class="map"></div>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button *ngIf="!lista">
+      <ion-icon name="search" (click)="lista = true"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-button *ngIf="lista">
+      <ion-icon name="map" (click)="lista = false"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

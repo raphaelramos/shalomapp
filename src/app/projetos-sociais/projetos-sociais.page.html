@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Projetos Sociais</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="bg-text padding-text">
+    <div [style.font-size]="app.fontSize+'px'">
+      <h3>Bem Estar</h3>
+      O Serviço para o Bem Estar Humano, conhecido também como Bem Estar&nbsp;é uma Instituição reconhecida de Utilidade Pública Municipal, Estadual e Federal e pelo Conselho Municipal de Assistência Social – CMAS . Fundada em 02 de agosto de 1982, sendo sua natureza beneficente, assistencial, filantrópica, educativa, recreativa, cultural, psicológica, esportiva e de promoção humana. Esta instituição presta relevantes serviços na área de assistência social às pessoas necessitadas e de baixa renda da comunidade Uberlandense.<br><br>
+      O “Bem Estar” nasceu com o intuito de amenizar as situações de desigualdade social e trazer melhoria às condições de vida das famílias necessitadas.<br><br>
+      Esta visa não apenas o suprimento das necessidades básicas como, o financeiro e o material, mas a garantia de ações de apoio e orientação às famílias em situação de vulnerabilidade.&nbsp;<br><br>
+      O Bem Estar possui a sede no bairro São Jorge em Uberlândia, tendo outras unidades na cidade, com atendimento a famílias e vários cursos para adolescentes, que frequentam a instituição no contraturno. Entre os serviços disponíveis estão Assistência Social, Atendimento Psicológico, Balcão de Empregos, Projeto Educa Sonhos(supletivo ensino fundamental e médio), Assistência Jurídica, Distribuição de Cesta Básica.<br><br>
+
+      <h3>Certo</h3>
+      O Certo tem por objetivo assistir pessoas carentes com deficiência física, e necessidades especiais (neurológicas e ortopédicas).<br><br>
+      Por ser uma instituição de filosofia Cristã, com objetivo de gerar fé e esperança, tem inserido em suas atividades o Departamento de Evangelização, que utiliza a Bíblia Sagrada, como fonte de ensino e inspiração.
+      <br><br>
+      Os profissionais realizam atendimentos grupais e individuais tais como: Grupo de AVC, Lombalgia, Fibromialgia, Socialização, Comunicação Alternativa, Estimulação sensorial, Arte terapia, em atendimentos terapêuticos associados (fisioterapia, terapia ocupacional, psicologia, arte terapia, fonoaudiologia). Além de discussões de casos clínicos, que são fundamentais no processo de reabilitação.<br><br>
+      A interdisciplinaridade constitui a prática de atuação desta instituição, e para tanto, conta com uma equipe com: acupunturista, arteterapeuta, equoterapeutas, fisioterapeutas, fonoaudióloga, hidroterapeuta, psicólogo e terapeuta ocupacional.<br><br>
+      Em sede própria na Rua Márcio Ribeiro da Silva, 301 – Setor Chácaras Tubalina, dispõe de um espaço amplo, adaptado, equipado e aparelhado.<br><br>
+      
+      <h3>Missão Esperança</h3>
+      A Missão Esperança foi criada em 09 de julho de 1992, buscando através de ações comunitárias de caráter social minimizar a ausência das necessidades básicas da população carente fornecendo alimentação, vestuário, atividades de lazer, orientação contra drogas e saúde.<br><br>
+      
+      <h3>Portal dos Sonhos</h3>
+      O Portal dos Sonhos é um Serviço de Convivência e Fortalecimento de Vínculos, filial da Missão Esperança, uma das obras sociais da Igreja Shalom. As crianças e adolescentes de 6 a 15 anos frequentam a instituição no contraturno escolar e participam de oficinas de karate, hip hop, violão, percussão e informática. O serviço é totalmente gratuito e abrange os bairros atendidos pelo CRAS Jardim Brasília.<br><br>
+      O Portal dos Sonhos tem por foco a constituição de espaço de convivência, formação para a participação e cidadania, desenvolvimento do protagonismo e da autonomia das crianças e adolescentes. As intervenções são pautadas em experiências lúdicas, culturais e esportivas como formas de expressão, interação, aprendizagem, sociabilidade e proteção social.<br><br>
+      
+      <h3>#AME</h3>
+      O projeto Amor, Mover e Evangelismo (#AME), é a ação social coordenada pela juventude da Shalom Comunidade Cristã. Entre suas ações estão a organização em massa para doação de sangue e entrega de cestas básicas para famílias em situação de vulnerabilidade social em parceria com o Bem Estar. <br><br>
+      A Shalom Comunidade Cristã também possui o projeto&nbsp;<strong>Nova Esperança</strong>, com o objetivo de visitar hospitais, levando uma palavra de esperança aos desesperados.<br><br>
+    </div>
+  </div>
+
+  <!-- Font button -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="resize-sharp"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-item class="range">
+        <ion-range min="14" max="48" step="2" color="secondary" [(ngModel)]="app.fontSize" (ionChange)="update()">
+          <ion-row style="font-size:18px" range-left>A</ion-row>
+          <ion-row style="font-size:38px" range-right>A</ion-row>
+        </ion-range>
+      </ion-item>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

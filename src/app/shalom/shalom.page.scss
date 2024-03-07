@@ -1,0 +1,29 @@
+ion-content {
+    --background: #000 url(../../assets/img/bg_shalom.jpg) no-repeat center top / cover;
+}
+
+ion-grid {
+    margin: 0px 33px 0px 33px;
+    padding: 1px;
+}
+
+ion-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50px;
+    filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.3));
+}
+
+ion-card-title, ion-card-header, p {
+    color: white;
+}
+
+.padding-button {
+    padding: 20px 10px 7px 10px;
+}
+
+p {
+    font-weight: bold;
+    font-size: 15px;
+}

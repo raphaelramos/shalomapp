@@ -1,0 +1,15 @@
+ion-content {
+    --background: #000 url(../../assets/img/bg.jpg) no-repeat center top / cover;
+}
+
+ion-card, ion-card-subtitle, ion-item {
+    color: white;
+}
+
+ion-range {
+    filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.5));
+}
+
+.size-about {
+    font-size: 14px;
+}

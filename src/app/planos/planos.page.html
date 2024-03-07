@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Planos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center">
+      <ion-button *ngFor="let item of dataConfig" expand="block" size="large" color="primary" (click)="open(item.url)">
+        {{ item.nome }}
+      </ion-button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      {{evento?.title}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding-top" *ngIf="loading">
+    <ion-spinner name="crescent" color="light"></ion-spinner>
+  </div>
+  
+  <div *ngIf="!loading">
+    <ion-card class="ion-text-center" >
+      <h3><strong class="ion-text-center">Início em {{evento?.utc_start_date | toDateObj | date: 'dd/MM/yyyy'}}</strong></h3>
+    </ion-card>
+
+    <div class="ion-padding  padding-text">
+      <!-- text -->
+      <div class="bg-text padding-text">
+        <div [style.font-size]="app.fontSize+'px'" [innerHTML]="evento?.description"></div>
+        <p class="cost">{{evento?.cost}}</p>
+      </div>
+    </div>
+
+    <ion-card *ngIf="evento?.show_map && evento?.venue.venue">
+      <ion-card-header>
+        <strong>LOCAL</strong>
+      </ion-card-header>
+      <ion-card-content>
+        {{evento?.venue.venue}}
+        <br>{{evento?.venue.address}} - {{evento?.venue.city}}
+      </ion-card-content>
+    </ion-card>
+
+    <!-- button files -->
+    <ion-button expand="block" color="dark" class="bg-text" Fill="clear" (click)="share(evento?.url)">
+      Compartilhar <ion-icon slot="end" name="share-social-outline"></ion-icon>
+    </ion-button>
+  </div>
+</ion-content>

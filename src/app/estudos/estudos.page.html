@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Estudos para Célula
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card *ngIf="errorMessage" class="ion-text-center">
+    <h3>Não foi possível verificar novos estudos</h3>
+  </ion-card>
+
+  <ion-grid *ngIf="!isInternet">
+    <h4 class="ion-padding-start white">
+      Você está sem internet!
+    </h4>
+    <p class="ion-padding-start white">Os estudos que já foram abertos continuam disponíveis offline.</p>
+    <ion-row class="ion-justify-content-center">
+      <ion-button col-4 icon-left color="primary" (click)="loadPosts()">
+        <ion-icon name="refresh"></ion-icon>
+        Tentar Novamente
+      </ion-button>
+    </ion-row>
+  </ion-grid>
+
+  <div *ngIf="posts != null; else loading">
+    <ion-card *ngFor="let post of posts">
+      <ion-card-header>
+        <ion-card-subtitle *ngIf="semana(post.acf?.data_inicio, post.acf?.data_fim)">
+          <ion-icon name="today-outline"></ion-icon> ESTUDO DA SEMANA
+        </ion-card-subtitle>
+        <ion-card-title [innerHTML]="post.title.rendered"></ion-card-title>
+        <h6 *ngIf="post.wps_subtitle">
+          {{post.wps_subtitle}}
+        </h6>
+        <!-- <ion-card-subtitle>{{ post.date | date }}</ion-card-subtitle> -->
+      </ion-card-header>
+      <ion-card-content>
+        <div [innerHTML]="post.excerpt.rendered"></div>
+        <ion-button expand="full" fill="clear" (click)="go(post.id, post)">Ler</ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-button expand="block" *ngIf="concluido" color="light" (click)="more()">
+      <ion-icon name="add-circle-outline"></ion-icon> Estudos Anteriores
+    </ion-button>
+
+    <ion-infinite-scroll *ngIf="isInternet && !concluido" threshold="100px" (ionInfinite)="loadMore($event)">
+      <ion-infinite-scroll-content loadingText="Carregando...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+
+  <!-- Skeleton screen -->
+  <ng-template #loading>
+    <ion-card *ngFor="let skeleton of skeletons">
+      <ion-card-header>
+        <ion-card-title> <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></ion-card-title>
+        <ion-skeleton-text animated style="width: 30%"></ion-skeleton-text>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+        </p>
+      </ion-card-content>
+    </ion-card>
+  </ng-template>
+
+</ion-content>

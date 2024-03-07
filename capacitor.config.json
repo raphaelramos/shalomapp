@@ -1,0 +1,28 @@
+{
+  "appId": "com.r2company.shalom",
+  "appName": "Shalom",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 5000,
+      "launchAutoHide": false,
+      "splashFullScreen": true
+    }
+  },
+  "cordova": {
+    "preferences": {
+      "YouTubeDataApiKey": "",
+      "ScrollEnabled": "false",
+      "android-minSdkVersion": "24",
+      "android-targetSdkVersion": "29",
+      "AndroidPersistentFileLocation": "Internal",
+      "AndroidLaunchMode": "singleTask",
+      "AndroidXEnabled": "true",
+      "BackupWebStorage": "none",
+      "WKWebViewOnly": "true",
+      "CordovaWebViewEngine": "CDVWKWebViewEngine"
+    }
+  }
+}

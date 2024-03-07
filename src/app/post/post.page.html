@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title [innerHTML]="news?.title.rendered"></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-card *ngIf="errorMessage" class="ion-text-center">
+      <h3>Houve um erro :/</h3>
+    </ion-card>
+
+    <div class="ion-padding-top" *ngIf="loading">
+      <ion-spinner name="crescent" color="light"></ion-spinner>
+    </div>
+
+    <!-- text -->
+    <div class="bg-text padding-text" *ngIf="!loading">
+      <div [style.font-size]="app.fontSize+'px'" [innerHTML]="news?.content.rendered" routeTransformer></div>
+    </div>
+  </div>
+
+  <!-- button files -->
+  <ion-button expand="block" color="dark" class="bg-text" Fill="clear" *ngIf="!errorMessage" (click)="share(news.link)">
+    Compartilhar <ion-icon slot="end" name="share-social-outline"></ion-icon>
+  </ion-button>
+
+  <!-- Font button -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="!loading">
+    <ion-fab-button>
+      <ion-icon name="resize-sharp"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-item class="range">
+        <ion-range min="14" max="48" step="2" color="secondary" [(ngModel)]="app.fontSize" (ionChange)="update()">
+          <ion-row style="font-size:18px" range-left>A</ion-row>
+          <ion-row style="font-size:38px" range-right>A</ion-row>
+        </ion-range>
+      </ion-item>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

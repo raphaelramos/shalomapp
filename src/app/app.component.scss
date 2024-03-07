@@ -1,0 +1,13 @@
+ion-content{
+    --ion-background-color:#0f1939;
+}
+
+ion-item {
+    color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+    ion-content{
+        --ion-background-color: #1e1e1e !important;
+    }
+}

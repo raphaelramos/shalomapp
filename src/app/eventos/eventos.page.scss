@@ -1,0 +1,9 @@
+ion-content {
+    --background: #000 url(../../assets/img/bg.jpg) no-repeat center top / cover;
+}
+
+img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}

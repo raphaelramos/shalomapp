@@ -1,0 +1,41 @@
+ion-content {
+    --background: #0d1734 url(../../assets/img/bg.jpg) no-repeat center top / cover;
+}
+
+ion-segment {
+    --background: #0d1734;
+}
+
+ion-segment-button {
+    --indicator-height: 0px;
+}
+
+img {
+    object-fit: cover;
+    width: 100%;
+}
+
+ion-card-title {
+    font-size: 1.2rem;
+}
+
+.in-segment-color {
+    color: white;
+}
+
+ion-card-title, ion-card-subtitle {
+    color: white;
+}
+
+ion-thumbnail {
+    width: 100%;
+    height: 209px;
+}
+
+ion-skeleton-text {
+    background-color: #ffffff30;
+}
+
+.live {
+    background-color: #ff000080 !important;
+}

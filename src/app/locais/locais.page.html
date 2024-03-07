@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Locais
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div *ngIf="locais != null; else loading">
+    <div *ngFor="let local of locais">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{local.identificacaoCongregacao}}</ion-card-title>
+          <ion-card-subtitle>{{local.horarioCongregacao}}</ion-card-subtitle>
+        </ion-card-header>
+      
+        <ion-card-content>
+          {{local.enderecoCongregacao}}
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+  <!-- Skeleton screen -->
+  <ng-template #loading>
+    <ion-card *ngFor="let skeleton of skeletons">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </ion-card-title>
+        <ion-card-subtitle>
+          <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+        </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+      </ion-card-content>
+    </ion-card>
+  </ng-template>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="call-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="start">
+      <ion-button (click)="contact('whatsapp')">WhatsApp</ion-button>
+      <ion-button (click)="contact('call')">Ligar</ion-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

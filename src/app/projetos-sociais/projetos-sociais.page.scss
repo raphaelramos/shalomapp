@@ -1,0 +1,20 @@
+ion-content {
+    --background: #000 url(../../assets/img/bg.jpg) no-repeat center top / cover;
+}
+
+h3 {
+    font-weight: bold;
+    font-size: 35px !important;
+}
+
+.padding-text {
+    padding: 5px 15px 5px 15px;
+}
+
+.range {
+    width: 250px;
+}
+
+:host ::ng-deep li {
+    margin-top: 10px;
+}

@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+        Vídeos
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-searchbar placeholder="Pesquisar" [(ngModel)]="searchQuery" (ngModelChange)="search()"></ion-searchbar> -->
+
+  <ion-segment (ionChange)="channelChanged($event)" color="light" scrollable>
+    <ion-segment-button *ngFor="let item of dataConfig.canais" [value]="item.nome" (click)="go(item.url)">
+      <ion-label>{{ item.nome }}</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-grid *ngIf="errorMessage">
+    <ion-row class="ion-justify-content-center">
+      <ion-button col-4 icon-left color="primary" (click)="goShalomtv()">
+        <ion-icon name="refresh"></ion-icon>
+        Abrir Shalom TV
+      </ion-button>
+    </ion-row>
+  </ion-grid>
+
+  <div *ngIf="videos != null; else loading">
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let video of videos" size="12" size-sm>
+          <ion-card (click)="open(video.id.videoId)" class="bg" [ngClass]="{'live': video.snippet?.liveBroadcastContent === 'live'}">
+            <img src="{{video.snippet.thumbnails.medium.url}}" *ngIf="video.snippet?.liveBroadcastContent != 'live'">
+            <ion-card-header>
+              <ion-card-subtitle *ngIf="video.snippet?.liveBroadcastContent == 'upcoming'">
+                <ion-icon name="logo-youtube"></ion-icon> AO VIVO EM BREVE<br>
+              </ion-card-subtitle>
+              <ion-card-subtitle *ngIf="video.snippet?.liveBroadcastContent == 'live'">
+                <ion-icon name="logo-youtube"></ion-icon> AO VIVO<br>
+                <!-- <ion-icon name='eye'></ion-icon> {{video.statistics.viewCount}} -->
+              </ion-card-subtitle>
+              <ion-card-title>{{video.snippet?.title}}</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-infinite-scroll threshold="100px" (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Carregando ...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+
+  <!-- Skeleton screen -->
+  <ng-template #loading>
+    <ion-card *ngFor="let skeleton of skeletons" class="bg">
+      <ion-thumbnail>
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-thumbnail>
+      <ion-card-header>
+        <ion-card-title>
+          <ion-skeleton-text animated style="width: 100%; height: 20px"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 60%; height: 20px"></ion-skeleton-text>
+        </ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </ng-template>
+</ion-content>

@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Opções
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card class="bg">
+    <ion-card-header>
+      <ion-card-subtitle>Letra <ion-badge color="secondary">{{app.fontSize}}</ion-badge></ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-item color="transparent" lines="none">
+        <ion-range min="14" max="48" step="2" color="secondary" [(ngModel)]="app.fontSize" (ionChange)="update()">
+          <ion-row style="font-size:18px" range-left>A</ion-row>
+          <ion-row style="font-size:38px" range-right>A</ion-row>
+        </ion-range>
+      </ion-item>
+      <div [style.font-size]="app.fontSize+2+'px'">Texto Exemplo</div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="bg" (click)="clearNews()">
+    <ion-card-header>
+      <ion-card-subtitle>Apagar estudos salvos</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content class="size-about">
+      Estudos abertos são salvos neste aparelho para ficar disponível off-line. Você pode apagar aqui.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="bg" (click)="r2()">
+    <ion-card-header>
+      <ion-card-subtitle>Versão</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content class="size-about">
+      Shalom Comunidade Cristã Uberlândia<br>
+      R2 Company<br>
+      Versão {{app.appInfo?.version}}
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

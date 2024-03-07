@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Mídia
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="top">
+      <ion-button *ngFor="let item of dataConfig.botoes" expand="block" color="primary" (click)="open(item.url, item.nome)">
+        <ion-icon [name]="item.logo"></ion-icon>
+        {{ item.nome }}
+      </ion-button>
+    </div>
+</ion-content>

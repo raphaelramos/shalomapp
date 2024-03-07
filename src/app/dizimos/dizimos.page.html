@@ -1,0 +1,168 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Dízimos e Ofertas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content class="ion-text-center">
+      <img src="assets/img/pix.svg" width="50%" class="ion-text-center">
+      <p>Chave {{ dataConfig.chave }}</p>
+      <p>{{ pix }}</p>
+    </ion-card-content>
+    <ion-button expand="full" (click)="clipboardPix()">Copiar Chave</ion-button>
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Outras opções</ion-label>
+        <ion-toggle [(ngModel)]="bancos"></ion-toggle>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <div *ngIf="bancos">
+    <ion-card *ngIf="dataConfig.bradesco">
+      <ion-card-header>
+        <ion-card-title>Banco Bradesco</ion-card-title>
+      </ion-card-header>
+      <ion-card-content [innerHTML]="dataConfig.bradesco">
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngFor="let banco of dataConfig.bancos">
+      <ion-card-header>
+        <ion-card-title>{{ banco.nome }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content [innerHTML]="banco.info">
+      </ion-card-content>
+      <ion-button *ngIf="banco.url" expand="full" fill="clear" (click)="open(banco.url)">Abrir</ion-button>
+    </ion-card>
+  </div>
+
+  <!-- Formulário -->
+  <div *ngIf="dizimos_form">
+    <ion-card>
+      <ion-card-content>
+        Após a transferência, preencha o formulário abaixo
+      </ion-card-content>
+    </ion-card>
+
+    <form #form="ngForm" novalidate>
+      <ion-item>
+        <ion-label position="floating">Nome Completo*</ion-label>
+        <ion-input type="text" [(ngModel)]="data.nome" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Seu email</ion-label>
+        <ion-input type="email" [(ngModel)]="data.email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Congregação</ion-label>
+        <ion-input type="text" [(ngModel)]="data.congregacao"></ion-input>
+      </ion-item>
+
+      <ion-item button="true" id="open-date-input">
+        <ion-label>Data da transferência</ion-label>
+        <ion-text slot="end">{{ data.data | date: 'dd/MM/yyyy' }}</ion-text>
+        <ion-popover trigger="open-date-input" show-backdrop="false">
+          <ng-template>
+            <ion-datetime
+              presentation="date"
+              displayFormat="dd/MM/yyyy"
+              locale="pt-BR"
+              cancelText="Cancelar" doneText="OK"
+              [max]="today | date: 'yyyy-MM-dd'"
+              [(ngModel)]="data.data"
+            ></ion-datetime>
+          </ng-template>
+        </ion-popover>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Método</ion-label>
+        <ion-select [(ngModel)]="data.metodo" okText="Ok" cancelText="Cancelar">
+          <ion-select-option value="Pix">Pix</ion-select-option>
+          <ion-select-option value="Bradesco">TED</ion-select-option>
+          <ion-select-option value="PicPay">PicPay</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Valor referente a Dízimo</ion-label>
+        <ion-input type="number" [(ngModel)]="data.dizimo" (ngModelChange)="checkTotal()"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Valor referente a Oferta Manutenção</ion-label>
+        <ion-input type="number" [(ngModel)]="data.oferta" (ngModelChange)="checkTotal()"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="primicias">
+        <ion-label position="floating">Valor referente a Oferta de Primícias</ion-label>
+        <ion-input type="number" [(ngModel)]="data.oferta_primicias" (ngModelChange)="checkTotal()"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Valor referente a Oferta Missões</ion-label>
+        <ion-input type="number" [(ngModel)]="data.missoes" (ngModelChange)="checkTotal()"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Valor referente a Oferta Obra Social</ion-label>
+        <ion-input type="number" [(ngModel)]="data.social" (ngModelChange)="checkTotal()"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Valor referente a Oferta Certo</ion-label>
+        <ion-input type="number" [(ngModel)]="data.certo" (ngModelChange)="checkTotal()"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Valor referente a Oferta Missão Esperança</ion-label>
+        <ion-input type="number" [(ngModel)]="data.missao_esperanca" (ngModelChange)="checkTotal()"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Valor referente a Oferta Construções</ion-label>
+        <ion-input type="number" [(ngModel)]="data.construcao" (ngModelChange)="checkTotal()"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Outros Valores</ion-label>
+        <ion-input type="number" [(ngModel)]="data.outros" (ngModelChange)="checkTotal()"></ion-input>
+      </ion-item>
+
+      <ion-item *ngIf="data.outros">
+        <ion-label position="floating">Descrição Outros Valores</ion-label>
+        <ion-input type="text" [(ngModel)]="data.outros_descricao" (ngModelChange)="checkTotal()"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Total da transferência informado</ion-label>
+        <ion-input type="text" [value]="data.total | currency:'BRL':true:'1.2-2'" readonly></ion-input>
+      </ion-item>
+
+      <ion-card *ngIf="errorMessage" class="ion-text-center">
+        <h3>Houve um erro :/<br>Por favor, tente mais tarde.</h3>
+      </ion-card>
+
+      <ion-card *ngIf="form.invalid" class="ion-text-center">
+        <p>Preencha os campos obrigatórios* para enviar.</p>
+      </ion-card>
+
+      <ion-button expand="full" color="light" [disabled]="form.invalid" (click)="submit()">Enviar</ion-button>
+      <ion-progress-bar color="light" type="indeterminate" *ngIf="saving && !errorMessage"></ion-progress-bar>
+    </form>
+  </div>
+  <ion-card *ngIf="sendMessage" class="ion-text-center">
+    <h3>Enviado!</h3>
+  </ion-card>
+</ion-content>

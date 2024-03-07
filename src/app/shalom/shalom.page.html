@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      A Shalom
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col (click)="route('/historia')">
+        <div class="ion-activatable ripple-parent bg padding-button">
+          <ion-img src="assets/img/historia.png"></ion-img>
+          <p class="ion-text-center">História</p>
+          <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+        </div>
+      </ion-col>
+
+      <ion-col>
+        <div class="ion-activatable ripple-parent bg padding-button" (click)="route('/projetos-sociais')">
+          <ion-img src="assets/img/projetos-sociais.png"></ion-img>
+          <p class="ion-text-center">Projeto Sociais</p>
+          <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col (click)="route('/planos')">
+        <div class="ion-activatable ripple-parent bg padding-button">
+          <ion-img src="assets/img/planos.png"></ion-img>
+          <p class="ion-text-center">Planos Leitura</p>
+          <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

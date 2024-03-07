@@ -1,0 +1,80 @@
+[
+    {
+        "dizimos": {
+          "chave": "CNPJ",
+          "pix": "08.513.775/0001-72",
+          "bancos": [
+            {
+              "nome": "Bradesco",
+              "info": "Agência 0265-8<br>Conta Poupança 1020321-0<br>Shalom Comunidade Cristã<br>CNPJ 08.513.775/0001-72",
+              "url": null
+            },
+            {
+              "nome": "PicPay",
+              "info": "Utilize um cartão de crédito ou saldo através do aplicativo PicPay<br>Necessário ter o app instalado",
+              "url": "https://app.picpay.com/payment?type=store&hash=racNC8gFB4G7nFq9"
+            }
+          ]
+        },
+        "midia": {
+            "botoes": [
+                {
+                    "nome": "Shalom",
+                    "logo": "logo-instagram",
+                    "url": "https://www.instagram.com/shalomcomunidadecrista/"
+                },
+                {
+                    "nome": "Jovens",
+                    "logo": "logo-instagram",
+                    "url": "https://www.instagram.com/jovensvoxdei/"
+                },
+                {
+                    "nome": "Juniores",
+                    "logo": "logo-instagram",
+                    "url": "https://www.instagram.com/junioresvoxdei"
+                },
+                {
+                    "nome": "Kids",
+                    "logo": "logo-instagram",
+                    "url": "https://www.instagram.com/shalomkidsudi/"
+                }
+            ]
+        },
+        "videos": {
+            "canais":[
+                {
+                    "nome": "Crianças",
+                    "url": "https://www.youtube.com/channel/UCA0xERkxWsXkwisWeV5cVKA"
+                },
+                {
+                    "nome": "Juniores",
+                    "url": "https://www.youtube.com/channel/UC6gVsYS4QPVhc4odU3TzLqw"
+                },
+                {
+                    "nome": "Surdos",
+                    "url": "https://www.youtube.com/channel/UC-h8n6T43BtDj1fqm6HXhJg"
+                }
+            ]
+        },
+        "planos": [
+            {
+                "nome": "Leitura Bíblica 2 anos",
+                "url": "https://drive.google.com/file/d/1QiY_QZoAD5f7w1E6O87JfHPTuv0rKfLB/view"
+            }
+        ],
+        "live": [
+            {
+                "day" : 0,
+                "hours" : "0830"
+              },
+              {
+                "day" : 0,
+                "hours" : "1800"
+              },
+              {
+                "day" : 6,
+                "hours" : "1930"
+              }
+        ]
+    }
+]

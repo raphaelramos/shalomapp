@@ -1,0 +1,31 @@
+<ion-app>
+  <ion-menu side="start" menuId="menu" contentId="main">
+    <ion-header>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-toolbar color="primary">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle auto-hide="true" (click)="unlock()">
+          <ion-item color="transparent" [routerLink]="['/home']" routerDirection="forward">Home</ion-item>
+          <ion-item color="transparent" [routerLink]="['/estudos']" routerDirection="forward">Estudos</ion-item>
+          <ion-item color="transparent" [routerLink]="['/videos']" routerDirection="forward">Vídeos</ion-item>
+          <ion-item color="transparent" [routerLink]="['/eventos']" routerDirection="forward">Eventos</ion-item>
+          <ion-item color="transparent" [routerLink]="['/midia']" routerDirection="forward">Mídia</ion-item>
+          <ion-item color="transparent" [routerLink]="['/dizimosofertas']" routerDirection="forward">Dízimos</ion-item>
+          <ion-item color="transparent" [routerLink]="['/celulas']" routerDirection="forward">Células</ion-item>
+          <ion-item color="transparent" [routerLink]="['/locais']" routerDirection="forward">Locais</ion-item>
+          <ion-item color="transparent" [routerLink]="['/catalogo']" routerDirection="forward">Catálogo</ion-item>
+          <ion-item color="transparent" [routerLink]="['/shalom']" routerDirection="forward">Shalom</ion-item>
+          <ion-item color="transparent" [routerLink]="['/config']" routerDirection="forward">Opções</ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  
+  <ion-router-outlet id="main"></ion-router-outlet>
+</ion-app>
