@@ -1,5 +1,7 @@
 <h2 align="center">
-    <img height="100" src="https://github.com/raphaelramos/shalomapp/assets/7671459/93ad6094-15ce-4892-9344-bd7d7bc9e592" />
+    <a href="https://scc.org.br" target="blank_">
+        <img height="100" src="https://github.com/raphaelramos/shalomapp/assets/7671459/93ad6094-15ce-4892-9344-bd7d7bc9e592" />
+    </a>
     <br>
     Church App Shalom Comunidade Cristã
 </h2>
@@ -36,11 +38,11 @@ NodeJS, Android SDK (Android), XCode (iOS).
 ```bash
   npm run start
 ```
-# Deploy
+# Build
 
 Add the Firebase google-services.json file to /android/app/
 
-### Deploy Android
+### Build Android
 
 ```bash
   npm run build:android:prod
@@ -50,7 +52,7 @@ Once Android Studio launches, you can build your app through the standard Androi
 Build > Generate Signed Bundle > Android App Bundle > Upload shalom.keystore. 
 Upload app bundle (.aab) in the site Google Play Developer Console.
 
-### Deploy iOS
+### Build iOS
 
 ```bash
   npm run build:ios:prod
