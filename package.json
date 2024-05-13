@@ -2,8 +2,8 @@
   "name": "shalom-app",
   "version": "0.0.1",
   "private": true,
-  "author": "Raphael Ramos",
-  "homepage": "https://raphaelramos.com.br/",
+  "author": "Raphael Ramos (https://raphaelramos.dev)",
+  "homepage": "https://scc.org.br/app",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
